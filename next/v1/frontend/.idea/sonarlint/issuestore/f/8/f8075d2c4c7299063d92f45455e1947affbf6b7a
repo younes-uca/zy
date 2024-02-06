@@ -1,0 +1,11 @@
+
+Etypescript:S1128
+"$Remove this unused import of 'Link'.(ÿÐÍ¸ÿÿÿÿÿ
+atypescript:S1854%"9Remove this useless assignment to variable "setProducts".(´ÿ±™ùÿÿÿÿ8îÕåî×1
+>typescript:S1874¼"!'responsiveLayout' is deprecated.(´ýðÒ
+þtypescript:S6478½"ÛDo not define components during render. React will see a new component type on every render and destroy the entire subtree\u8217s DOM nodes and state. Instead, move this component definition out of the parent component \u8220Dashboard\u8221 and pass data as props. If you want to allow component creation in props, set allowAsProps option to true.(¶Ã¡÷øÿÿÿÿ
+ùtypescript:S6478Ã"ÛDo not define components during render. React will see a new component type on every render and destroy the entire subtree\u8217s DOM nodes and state. Instead, move this component definition out of the parent component \u8220Dashboard\u8221 and pass data as props. If you want to allow component creation in props, set allowAsProps option to true.(Ä–¹ñ
+Ntypescript:S6749Ä",A fragment with only one child is redundant.(™åÑðüÿÿÿÿ
+Ltypescript:S6772Å"*Ambiguous spacing before next element span(Æ­·’ûÿÿÿÿ
+Ltypescript:S6772Ý"*Ambiguous spacing before next element span(Æ­·’ûÿÿÿÿ
+Ltypescript:S6772é"*Ambiguous spacing before next element span(§ˆÆ¤üÿÿÿÿ

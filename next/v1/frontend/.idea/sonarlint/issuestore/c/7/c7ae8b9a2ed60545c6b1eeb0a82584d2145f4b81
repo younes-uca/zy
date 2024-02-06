@@ -1,0 +1,19 @@
+
+Ktypescript:S1128"*Remove this unused import of 'FileUpload'.(ñ·¦‰üÿÿÿÿ
+Btypescript:S1128"&Remove this unused import of 'useRef'.(ã€·Ï
+Ytypescript:S1128"8Remove this unused import of 'PaginatorPageChangeEvent'.(åÄˆƒÿÿÿÿÿ
+Btypescript:S1128"&Remove this unused import of 'format'.(¶Ì™À
+[typescript:S18542"8Remove this useless assignment to variable "showSearch".(ÖµÃ«8œÆï×1
+dtypescript:S1854L"CRemove this useless assignment to variable "confirmDeleteSelected".(Ş·£Şıÿÿÿÿ
+Stypescript:S1854M"7Remove this useless assignment to variable "exportCSV".(×§Œğ
+[typescript:S1854N"8Remove this useless assignment to variable "deleteItem".(ˆùù´8Æï×1
+btypescript:S1854S"?Remove this useless assignment to variable "CustomBooleanCell".(Ûíí«8Æï×1
+Ytypescript:S1854V"=Remove this useless assignment to variable "showCreateModal".(ÈÚí
+Wtypescript:S1854W";Remove this useless assignment to variable "showEditModal".(„ê˜×
+^typescript:S1854X";Remove this useless assignment to variable "showViewModal".(ÈÑã„8Æï×1
+[typescript:S1854["?Remove this useless assignment to variable "confirmDeleteItem".(üœÃ 
+htypescript:S1854\"@Remove this useless assignment to variable "statusBodyTemplate".(È•¶¾üÿÿÿÿ8Æï×1
+dtypescript:S1854^"ARemove this useless assignment to variable "deleteSelectedItems".(£Æ§Ë8Æï×1
+8typescript:S1874"'left' is deprecated.(ïºÂü8Æï×1
+9typescript:S1874"'right' is deprecated.(ïºÂü8Æï×1
+Etypescript:S1874®"!'responsiveLayout' is deprecated.(åªŸÈ8Æï×1
