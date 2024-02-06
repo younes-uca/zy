@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { User } from 'src/app/zynerator/security/User.model';
-import {Role} from 'src/app/zynerator/security/Role.model';
-import { AuthService } from 'src/app/zynerator/security/Auth.service';
+import {AuthService} from 'src/app/zynerator/security/controller/service/Auth.service';
+import {UserDto} from 'src/app/zynerator/security/controller/model/User.model';
+import {RoleDto} from 'src/app/zynerator/security/controller/model/Role.model';
+import {RoleUserDto} from 'src/app/zynerator/security/controller/model/RoleUser.model';
 
 @Component({
   selector: 'app-register-admin',
@@ -25,23 +26,25 @@ export class RegisterAdminComponent implements OnInit {
   submit(){
     const formValues = this.registerForm.value;
     const {prenom, nom, userName, password, email} = formValues;
-    const role = new Role();
+    const role = new RoleDto();
     role.authority = 'ROLE_Admin' ;
+    const roleUser = new RoleUserDto();
+    roleUser.role = role;
     this.user.prenom = prenom;
     this.user.nom = nom;
     this.user.username = userName;
     this.user.password = password;
     this.user.email = email;
-    this.user.roles = [role] ;
+    this.user.roleUsers = [roleUser] ;
     this.authService.registerAdmin();
 
   }
-    get user(): User {
-        return this.authService.user;
-    }
+  get user(): UserDto {
+    return this.authService.user;
+  }
 
-    set user(value: User) {
-        this.authService.user = value;
-    }
+  set user(value: UserDto) {
+    this.authService.user = value;
+  }
 
 }

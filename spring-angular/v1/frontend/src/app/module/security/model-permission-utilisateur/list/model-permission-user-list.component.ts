@@ -54,13 +54,15 @@ export class ModelPermissionUserListComponent extends AbstractListController<Mod
 
 
     public async loadActionPermission(){
-       this.actionPermissionService.findAllOptimized().subscribe(actionPermissions => this.actionPermissions = actionPermissions, error => console.log(error))
+       this.actionPermissionService.findAllOptimized().subscribe(data => this.actionPermissions = data, error => console.log(error));
     }
+
     public async loadModelPermission(){
-       this.modelPermissionService.findAllOptimized().subscribe(modelPermissions => this.modelPermissions = modelPermissions, error => console.log(error))
+       this.modelPermissionService.findAllOptimized().subscribe(data => this.modelPermissions = data, error => console.log(error));
     }
+
     public async loadUser(){
-       this.userService.findAllOptimized().subscribe(users => this.users = users, error => console.log(error))
+       this.userService.findAllOptimized().subscribe(users => this.users = users, error => console.log(error));
     }
 
 

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {PrimeNGConfig} from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
 import {Observable} from 'rxjs';
-import {RoleService} from 'src/app/zynerator/security/Role.service';
+import {RoleService} from './zynerator/security/controller/service/Role.service';
 
 @Component({
     selector: 'app-root',
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
     // }
 
     constructor(private primengConfig: PrimeNGConfig, private roleService: RoleService, private translateService: TranslateService) {
-        translateService.addLangs(['ar','en', 'fr']);
+        translateService.addLangs(['ar', 'en', 'fr']);
         translateService.setDefaultLang('en');
         const browserLang = translateService.getBrowserLang();
         console.log('browser lang ==>  ' +browserLang);

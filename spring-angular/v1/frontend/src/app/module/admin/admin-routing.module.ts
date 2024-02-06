@@ -3,7 +3,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/controller/guards/auth.guard';
+import { AuthGuard } from 'src/app/zynerator/security/guards/auth.guard';
 
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
@@ -43,6 +43,11 @@ import { RegisterAdminComponent } from './register-admin/register-admin.componen
                         {
                             path: 'achat',
                             loadChildren: () => import('./view/achat/achat-admin-routing.module').then(x => x.AchatAdminRoutingModule),
+                            canActivate: [AuthGuard],
+                        },
+                        {
+                            path: 'security',
+                            loadChildren: () => import('../security/security-routing.module').then(x => x.SecurityRoutingModule),
                             canActivate: [AuthGuard],
                         },
                     ]

@@ -10,7 +10,7 @@ import {UserListComponent} from './security/user/list/user-list.component';
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { AuthGuard } from 'src/app/controller/guards/auth.guard';
+import { AuthGuard } from 'src/app/zynerator/security/guards/auth.guard';
 
 
 

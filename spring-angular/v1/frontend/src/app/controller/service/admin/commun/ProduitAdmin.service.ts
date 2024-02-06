@@ -1,8 +1,6 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
 
-import { RoleService } from 'src/app/zynerator/security/Role.service';
 import {environment} from 'src/environments/environment';
 
 import {ProduitDto} from 'src/app/controller/model/commun/Produit.model';
@@ -11,10 +9,10 @@ import {AbstractService} from 'src/app/zynerator/service/AbstractService';
 
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class ProduitAdminService extends AbstractService<ProduitDto, ProduitCriteria> {
-     constructor(private http: HttpClient, private roleService: RoleService) {
+    constructor(private http: HttpClient) {
         super();
         this.setHttp(http);
         this.setApi(environment.apiUrl + 'admin/produit/');
@@ -23,6 +21,7 @@ export class ProduitAdminService extends AbstractService<ProduitDto, ProduitCrit
     getModelName(modelName: string): string {
         return this.modeleName = modelName;
     }
+
     public constrcutDto(): ProduitDto {
         return new ProduitDto();
     }

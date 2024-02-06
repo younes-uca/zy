@@ -5,7 +5,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CommonModule, DatePipe} from '@angular/common';
 import {AppRoutingModule} from './app-routing.module';
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from '@angular/common/http';
-import {JwtInterceptor} from './controller/interceptors/jwt.interceptor';
+import {JwtInterceptor} from './zynerator/security/interceptors/jwt.interceptor';
 import {ConfirmationService, MessageService} from 'primeng/api';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
