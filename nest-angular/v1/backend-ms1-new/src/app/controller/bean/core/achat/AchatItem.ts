@@ -22,4 +22,6 @@ export class AchatItem  extends AuditBusinessObject {
     remise: number;
     @ManyToOne(() => Achat, { eager: true })
     achat: Achat;
+    @ManyToOne(() => Produit, { eager: true })
+    produit: Produit;
 }

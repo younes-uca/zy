@@ -7,7 +7,7 @@ import {AchatCriteria} from "src/app/controller/dao/criteria/core/achat/AchatCri
 import {Achat} from "src/app/controller/bean/core/achat/Achat";
 import {AchatDto} from "src/app/controller/dto/achat/AchatDto";
 
-import {AchatItemAdminServiceImpl} from "src/app/module/admin/service/achat/AchatItemAdminServiceImpl";
+import {AchatItemAdminServiceImpl} from "src/app/module/service/admin/achat/AchatItemAdminServiceImpl";
 import {AchatItem} from "src/app/controller/bean/core/achat/AchatItem";
 
 @Injectable()
