@@ -1,0 +1,42 @@
+{
+    "reference": "reference-1",
+    "total": "10",
+    "totalPaye": "10",
+    "description": "description-1",
+    "client": {"id": "1"},
+
+    "achatItems": [
+        {
+            "produit":{"id": "1"},
+            "prixUnitaire":"10",
+            "prixVente":"10",
+            "quantite":"10",
+            "quantiteAvoir":"10",
+            "remise":"10"
+        },
+        {
+            "produit":{"id": "2"},
+            "prixUnitaire":"20",
+            "prixVente":"20",
+            "quantite":"20",
+            "quantiteAvoir":"20",
+            "remise":"20"
+        },
+        {
+            "produit":{"id": "3"},
+            "prixUnitaire":"30",
+            "prixVente":"30",
+            "quantite":"30",
+            "quantiteAvoir":"30",
+            "remise":"30"
+        }
+    ]
+}
+
+
+
+
+
+
+
+

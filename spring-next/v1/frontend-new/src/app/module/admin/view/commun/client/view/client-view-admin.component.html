@@ -1,0 +1,52 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{t("client.tabPan")}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{t("client.tabPan")}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{t("client.cin")}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{t("client.cin")}" autofocus  id="1" [(ngModel)]="item.cin">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{t("client.nom")}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{t("client.nom")}" autofocus  id="2" [(ngModel)]="item.nom">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{t("client.tel")}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{t("client.tel")}" autofocus  id="3" [(ngModel)]="item.tel">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{t("client.email")}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{t("client.email")}" autofocus  id="4" [(ngModel)]="item.email">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{t("client.adresse")}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{t("client.adresse")}" autofocus  id="5" [(ngModel)]="item.adresse">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{t("client.description")}</label>
+                        <textarea id="6" pInputTextarea rows="5" cols="30" [disabled]="true" placeholder="{t("client.description")}"  [(ngModel)]="item.description"></textarea>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{t("client.creance")}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="7" [disabled]="true" placeholder="{t("client.creance")}" [(ngModel)]="item.creance"></p-inputNumber>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="grid-footer">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+
