@@ -3,7 +3,7 @@ import {ApiOperation, ApiTags} from '@nestjs/swagger';
 import {PaginatedList} from "src/app/zynerator/util/PaginatedList";
 
 import {AchatConverter} from "src/app/controller/converter/achat/AchatConverter";
-import {AchatAdminServiceImpl} from "src/app/module/admin/service/achat/AchatAdminServiceImpl";
+import {AchatAdminServiceImpl} from "src/app/module/service/admin/achat/AchatAdminServiceImpl";
 import {AchatDto} from "src/app/controller/dto/achat/AchatDto";
 import {AchatCriteria} from "src/app/controller/dao/criteria/core/achat/AchatCriteria";
 
