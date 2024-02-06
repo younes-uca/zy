@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-import {animate, state, style, transition, trigger,} from '@angular/animations';
+import {animate, state, style, transition, trigger} from '@angular/animations';
 
 import {AppComponent} from 'src/app/app.component';
 
@@ -64,29 +64,23 @@ export class AppMenuComponent implements OnInit {
         this.modelAdmin =
             [
                 {
-                    label: 'User',
+                    label: 'Security Management',
                     icon: 'pi pi-wallet',
                     items: [
                         {
-                            label: 'Liste User',
+                            label: 'List User',
                             icon: 'pi pi-fw pi-plus-circle',
-                            routerLink: ['/app/security/user/list']
-                        },
-                    ]
-                },
-                {
-                    label: 'Model Permission',
-                    icon: 'pi pi-wallet',
-                    items: [
-                        {
-                            label: 'Liste Model',
-                            icon: 'pi pi-fw pi-plus-circle',
-                            routerLink: ['/app/security/model-permission/list']
+                            routerLink: ['/app/admin/security/user/list']
                         },
                         {
-                            label: 'Liste Action Permission',
+                            label: 'List Model',
                             icon: 'pi pi-fw pi-plus-circle',
-                            routerLink: ['/app/security/action-permission/list']
+                            routerLink: ['/app/admin/security/model-permission/list']
+                        },
+                        {
+                            label: 'List Action Permission',
+                            icon: 'pi pi-fw pi-plus-circle',
+                            routerLink: ['/app/admin/security/action-permission/list']
                         },
                     ]
                 },

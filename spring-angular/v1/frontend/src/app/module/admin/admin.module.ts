@@ -23,6 +23,8 @@ import {CommunAdminRoutingModule} from './view/commun/commun-admin-routing.modul
 import {AchatAdminModule} from './view/achat/achat-admin.module';
 import {AchatAdminRoutingModule} from './view/achat/achat-admin-routing.module';
 
+import {SecurityModule} from 'src/app/module/security/security.module';
+import {SecurityRoutingModule} from 'src/app/module/security/security-routing.module';
 
 import {PasswordModule} from 'primeng/password';
 import {InputTextModule} from 'primeng/inputtext';
@@ -33,8 +35,7 @@ import {TabViewModule} from 'primeng/tabview';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {MessageModule} from 'primeng/message';
 import {MessagesModule} from 'primeng/messages';
-import {SecurityModule} from '../security/security.module';
-import {SecurityRoutingModule} from '../security/security-routing.module';
+
 
 
 @NgModule({

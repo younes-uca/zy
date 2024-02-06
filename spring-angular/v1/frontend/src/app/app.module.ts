@@ -56,7 +56,6 @@ import {AdminModule} from './module/admin/admin.module';
 import {AdminRoutingModule} from './module/admin/admin-routing.module';
 import {UserService} from './zynerator/security/controller/service/User.service';
 import {RoleService} from './zynerator/security/controller/service/Role.service';
-import {UserListComponent} from './module/security/user/list/user-list.component';
 
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -116,7 +115,6 @@ declarations: [
   AppRightMenuComponent,
   AppTopBarComponent,
   AppFooterComponent,
-  UserListComponent,
   HomeComponent
 ],
 providers: [

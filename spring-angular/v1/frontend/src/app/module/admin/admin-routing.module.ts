@@ -49,7 +49,7 @@ import { RegisterAdminComponent } from './register-admin/register-admin.componen
                             path: 'security',
                             loadChildren: () => import('../security/security-routing.module').then(x => x.SecurityRoutingModule),
                             canActivate: [AuthGuard],
-                        },
+                        }
                     ]
                 },
             ]
