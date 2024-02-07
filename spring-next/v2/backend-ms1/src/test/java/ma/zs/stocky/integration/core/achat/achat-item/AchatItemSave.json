@@ -1,0 +1,18 @@
+{
+    "produit": {"id": "1"},
+    "prixUnitaire": "10",
+    "prixVente": "10",
+    "quantite": "10",
+    "quantiteAvoir": "10",
+    "remise": "10",
+    "achat": {"id": "1"}
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,18 @@
+{
+    "reference": "#string",
+    "libelle": "#string",
+    "barcode": "#string",
+    "discription": "#string",
+    "prixAchatMoyen": "#number",
+    "quantite": "#number",
+    "seuilAlert": "#number"
+
+}
+
+
+
+
+
+
+
+
