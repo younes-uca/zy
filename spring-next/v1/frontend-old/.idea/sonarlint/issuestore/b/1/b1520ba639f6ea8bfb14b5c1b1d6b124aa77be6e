@@ -1,23 +1,0 @@
-
-Ktypescript:S1128"*Remove this unused import of 'FileUpload'.(ñ·¦‰üÿÿÿÿ
-Btypescript:S1128"&Remove this unused import of 'useRef'.(ã€·Ï
-Dtypescript:S1128"(Remove this unused import of 'useState'.(ã€·Ï
-Ytypescript:S1128"8Remove this unused import of 'PaginatorPageChangeEvent'.(åÄˆƒÿÿÿÿÿ
-Itypescript:S1128"(Remove this unused import of 'Calendar'.(ù—¬øÿÿÿÿ
-Dtypescript:S1128"(Remove this unused import of 'Dropdown'.(ÏÀŸ€
-Btypescript:S1128"&Remove this unused import of 'format'.(¶Ì™À
-Ttypescript:S1854/"8Remove this useless assignment to variable "showSearch".(ÖµÃ«
-dtypescript:S1854I"CRemove this useless assignment to variable "confirmDeleteSelected".(Ş·£Şıÿÿÿÿ
-Stypescript:S1854J"7Remove this useless assignment to variable "exportCSV".(×§Œğ
-Ttypescript:S1854K"8Remove this useless assignment to variable "deleteItem".(ˆùù´
-[typescript:S1854P"?Remove this useless assignment to variable "CustomBooleanCell".(Ûíí«
-Ytypescript:S1854S"=Remove this useless assignment to variable "showCreateModal".(ÈÚí
-Wtypescript:S1854T";Remove this useless assignment to variable "showEditModal".(„ê˜×
-Wtypescript:S1854U";Remove this useless assignment to variable "showViewModal".(ÈÑã„
-[typescript:S1854X"?Remove this useless assignment to variable "confirmDeleteItem".(üœÃ 
-atypescript:S1854Y"@Remove this useless assignment to variable "statusBodyTemplate".(È•¶¾üÿÿÿÿ
-Utypescript:S1854Z"9Remove this useless assignment to variable "formateDate".(¹«ä­
-]typescript:S1854["ARemove this useless assignment to variable "deleteSelectedItems".(£Æ§Ë
-1typescript:S1874y"'left' is deprecated.(ïºÂü
-2typescript:S1874y"'right' is deprecated.(ïºÂü
-Ctypescript:S1874¤"!'responsiveLayout' is deprecated.(š”Ç¦úÿÿÿÿ

@@ -1,15 +1,0 @@
-
-Etypescript:S1128")Remove this unused import of 'useRouter'.(Ì¤İÚ
-Jtypescript:S1128".Remove this unused import of 'useMountEffect'.(ŒÉ¢ä
-Rtypescript:S1128"1Remove this unused import of 'PrimeReactContext'.(ı®¥Àùÿÿÿÿ
-Ctypescript:S3863"''next/navigation' import is duplicated.(Ÿæ¡³
-Etypescript:S3863"#'./AppConfig' import is duplicated.(®´h8ÏÒãî×1
-Qtypescript:S1128"/Remove this unused import of 'TRANSLATION_URL'.(®´h8ĞÒãî×1
-:typescript:S125$"Remove this commented out code.(ÎÒİÜ
-‹typescript:S6606+"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(Ìü‡ˆùÿÿÿÿ
-†typescript:S6606,"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(›”â†
-…typescript:S6606-"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(ù„Î
-‹typescript:S6606B"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(¢Øõúÿÿÿÿ
-†typescript:S6606C"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(÷«Ëâ
-†typescript:S6606D"jPrefer using nullish coalescing operator (`??`) instead of a logical or (`||`), as it is a safer operator.(êıâ
-Htypescript:S6749",A fragment with only one child is redundant.(÷Å…Z
