@@ -1,0 +1,18 @@
+{
+    "produit": {"id": "#number"},
+    "prixUnitaire": "#number",
+    "prixVente": "#number",
+    "quantite": "#number",
+    "quantiteAvoir": "#number",
+    "remise": "#number",
+    "achat": {"id": "#number"}
+
+}
+
+
+
+
+
+
+
+
