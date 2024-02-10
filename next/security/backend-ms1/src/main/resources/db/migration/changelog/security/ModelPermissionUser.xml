@@ -1,0 +1,51 @@
+<!-- db/changelog-1.1-container.xml -->
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+  <!-- Create Container Table -->
+    <changeSet id="1" author="your-name">
+    <createTable tableName="model_permission_user">
+      <column name="id" type="BIGINT">
+        <constraints primaryKey="true" nullable="false"/>
+      </column>
+        <column name="value" type="TINYINT"/>
+        <column name="sub_attribute" type="VARCHAR(500)"/>
+
+        <column name="action_permission_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="model_permission_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+        <column name="user_id" type="BIGINT">
+          <constraints nullable="false"/>
+        </column>
+
+    </createTable>
+  </changeSet>
+
+
+    <!-- Create Sequence for ContainerType -->
+  <changeSet id="2" author="your-name">
+    <createSequence sequenceName="model_permission_user_seq" startValue="1" incrementBy="1"/>
+  </changeSet>
+
+  <!-- Load Data from CSV -->
+  <changeSet id="3" author="your-name">
+    <loadData
+            file="classpath:/db/migration/data/security/ModelPermissionUser.csv"
+            tableName="model_permission_user">
+      <column name="id" type="NUMERIC"/>
+          <column name="value" type="BOOLEAN"/>
+          <column name="sub_attribute" type="STRING"/>
+        <column name="action_permission" type="BIGINT"/>
+        <column name="model_permission" type="BIGINT"/>
+        <column name="user" type="BIGINT"/>
+    </loadData>
+  </changeSet>
+
+
+</databaseChangeLog>

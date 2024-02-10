@@ -1,0 +1,33 @@
+{
+    "credentialsNonExpired": "#bool",
+    "enabled": "#bool",
+    "email": "#string",
+    "accountNonExpired": "#bool",
+    "accountNonLocked": "#bool",
+    "username": "#string",
+    "password": "#string",
+    "passwordChanged": "#bool",
+    "lastName": "#string",
+    "firstName": "#string",
+    "phone": "#string",
+
+    "roleUsers": [
+      {
+        "role":{"id": "#number"}}
+      },
+      {
+        "role":{"id": "#number"}}
+      },
+      {
+        "role":{"id": "#number"}}
+      }
+    ]
+}
+
+
+
+
+
+
+
+
