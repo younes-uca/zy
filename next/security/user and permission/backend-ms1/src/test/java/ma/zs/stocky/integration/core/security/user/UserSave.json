@@ -1,0 +1,53 @@
+{
+    "credentialsNonExpired": "true",
+    "enabled": "true",
+    "email": "email-1",
+    "accountNonExpired": "true",
+    "accountNonLocked": "true",
+    "username": "username-1",
+    "password": "password-1",
+    "passwordChanged": "true",
+    "lastName": "lastName-1",
+    "firstName": "firstName-1",
+    "phone": "phone-1",
+
+    "roleUsers": [
+        {
+            "role":{"id": "1"}
+        },
+        {
+            "role":{"id": "2"}
+        },
+        {
+            "role":{"id": "3"}
+        }
+    ],
+    "modelPermissionUsers": [
+        {
+            "value":"false",
+            "subAttribute":"subAttribute-1",
+            "actionPermission":{"id": "1"},
+            "modelPermission":{"id": "1"}
+        },
+        {
+            "value":"true",
+            "subAttribute":"subAttribute-2",
+            "actionPermission":{"id": "2"},
+            "modelPermission":{"id": "2"}
+        },
+        {
+            "value":"false",
+            "subAttribute":"subAttribute-3",
+            "actionPermission":{"id": "3"},
+            "modelPermission":{"id": "3"}
+        }
+    ]
+}
+
+
+
+
+
+
+
+
