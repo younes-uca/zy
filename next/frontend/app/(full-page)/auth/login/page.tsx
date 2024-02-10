@@ -92,7 +92,7 @@ const LoginPage = () => {
     </div>
         <div style={{height:"100%",  marginInline: "auto", paddingTop:"160px",display:"flex",flexDirection:"column", maxWidth:"400px" , width:"50%",overflow:"non"}}>
         <h2 className="mb-5">Saisissez vos identifiants</h2>
-        <span className="mb-5">Votre mail et mot de passe seront utilisés pour vous connecter ou alors pour vous inviter à créer un compte si vous n'en avez pas encore.</span>
+        <span className="mb-5">Votre mail et mot de passe seront utilisés pour vous connecter ou alors pour vous inviter à créer un compte.</span>
 
         <div>
             <label htmlFor="email" className="block text-900 text-base font-medium mb-2">

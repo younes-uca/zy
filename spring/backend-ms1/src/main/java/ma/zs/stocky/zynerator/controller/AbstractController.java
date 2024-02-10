@@ -182,10 +182,12 @@ public class AbstractController<T extends AuditBusinessObject, DTO extends BaseD
 
     public ResponseEntity<DTO> update(DTO dto) throws Exception {
         ResponseEntity<DTO> res ;
-        if (dto.getId() == null || service.findById(dto.getId()) == null)
+        T loaded = service.findById(dto.getId());
+
+        if (dto.getId() == null || loaded == null)
             res = new ResponseEntity<>(HttpStatus.CONFLICT);
         else {
-            T t = service.findById(dto.getId());
+            T t = loaded;
             converter.copy(dto,t);
             T updated = service.update(t);
             DTO myDto = converter.toDto(updated);
@@ -283,7 +285,6 @@ public class AbstractController<T extends AuditBusinessObject, DTO extends BaseD
 
     public ResponseEntity<PaginatedList> findPaginatedByCriteria(Criteria criteria) throws Exception {
         List<T> list = service.findPaginatedByCriteria(criteria, criteria.getPage(), criteria.getMaxResults(), criteria.getSortOrder(), criteria.getSortField());
-        list = converter.copyIncludeExcludeItems(list, criteria.getIncludes(), criteria.getExcludes());
         converter.initObject(true);
         List<DTO> dtos = converter.toDto(list);
         PaginatedList paginatedList = new PaginatedList();
@@ -294,7 +295,6 @@ public class AbstractController<T extends AuditBusinessObject, DTO extends BaseD
         }
         return new ResponseEntity<>(paginatedList, HttpStatus.OK);
     }
-
 
     public ResponseEntity<InputStreamResource> export(Criteria criteria) throws Exception {
         ResponseEntity<InputStreamResource> res = null;

@@ -1,65 +1,70 @@
-package  ma.zs.stocky.ws.converter.achat;
+package ma.zs.stocky.ws.converter.achat;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import ma.zs.stocky.zynerator.util.ListUtil;
-
-import ma.zs.stocky.ws.converter.achat.AchatItemConverter;
+import ma.zs.stocky.bean.core.achat.Achat;
 import ma.zs.stocky.ws.converter.commun.ClientConverter;
 import ma.zs.stocky.ws.converter.commun.ProduitConverter;
-
-
-
-import ma.zs.stocky.zynerator.util.StringUtil;
+import ma.zs.stocky.ws.dto.achat.AchatDto;
 import ma.zs.stocky.zynerator.converter.AbstractConverter;
 import ma.zs.stocky.zynerator.util.DateUtil;
-import ma.zs.stocky.bean.core.achat.Achat;
-import ma.zs.stocky.ws.dto.achat.AchatDto;
+import ma.zs.stocky.zynerator.util.ListUtil;
+import ma.zs.stocky.zynerator.util.StringUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 @Component
 public class AchatConverter extends AbstractConverter<Achat, AchatDto> {
 
     @Autowired
-    private AchatItemConverter achatItemConverter ;
+    private AchatItemConverter achatItemConverter;
     @Autowired
-    private ClientConverter clientConverter ;
+    private ClientConverter clientConverter;
     @Autowired
-    private ProduitConverter produitConverter ;
+    private ProduitConverter produitConverter;
     private boolean client;
     private boolean achatItems;
 
-    public  AchatConverter() {
+    public AchatConverter() {
         super(Achat.class, AchatDto.class);
         init(true);
     }
+
+
+    public void copy(AchatDto dto, Achat t) {
+        super.copy(dto, t);
+        if (dto.getClient() != null)
+            clientConverter.copy(dto.getClient(), t.getClient());
+        if (dto.getAchatItems() != null)
+            t.setAchatItems(achatItemConverter.copy(dto.getAchatItems()));
+    }
+
 
     @Override
     public Achat toItem(AchatDto dto) {
         if (dto == null) {
             return null;
         } else {
-        Achat item = new Achat();
-            if(StringUtil.isNotEmpty(dto.getId()))
+            Achat item = new Achat();
+            if (StringUtil.isNotEmpty(dto.getId()))
                 item.setId(dto.getId());
-            if(StringUtil.isNotEmpty(dto.getReference()))
+            if (StringUtil.isNotEmpty(dto.getReference()))
                 item.setReference(dto.getReference());
-            if(StringUtil.isNotEmpty(dto.getDateAchat()))
+            if (StringUtil.isNotEmpty(dto.getDateAchat()))
                 item.setDateAchat(DateUtil.stringEnToDate(dto.getDateAchat()));
-            if(StringUtil.isNotEmpty(dto.getTotal()))
+            if (StringUtil.isNotEmpty(dto.getTotal()))
                 item.setTotal(dto.getTotal());
-            if(StringUtil.isNotEmpty(dto.getTotalPaye()))
+            if (StringUtil.isNotEmpty(dto.getTotalPaye()))
                 item.setTotalPaye(dto.getTotalPaye());
-            if(StringUtil.isNotEmpty(dto.getDescription()))
+            if (StringUtil.isNotEmpty(dto.getDescription()))
                 item.setDescription(dto.getDescription());
-            if(this.client && dto.getClient()!=null &&  dto.getClient().getId() != null)
-                item.setClient(clientConverter.toItem(dto.getClient())) ;
+            if (this.client && dto.getClient() != null && dto.getClient().getId() != null)
+                item.setClient(clientConverter.toItem(dto.getClient()));
 
 
-            if(this.achatItems && ListUtil.isNotEmpty(dto.getAchatItems()))
+            if (this.achatItems && ListUtil.isNotEmpty(dto.getAchatItems()))
                 item.setAchatItems(achatItemConverter.toItem(dto.getAchatItems()));
 
 
-        return item;
+            return item;
         }
     }
 
@@ -69,31 +74,31 @@ public class AchatConverter extends AbstractConverter<Achat, AchatDto> {
             return null;
         } else {
             AchatDto dto = new AchatDto();
-            if(StringUtil.isNotEmpty(item.getId()))
+            if (StringUtil.isNotEmpty(item.getId()))
                 dto.setId(item.getId());
-            if(StringUtil.isNotEmpty(item.getReference()))
+            if (StringUtil.isNotEmpty(item.getReference()))
                 dto.setReference(item.getReference());
-            if(item.getDateAchat()!=null)
+            if (item.getDateAchat() != null)
                 dto.setDateAchat(DateUtil.dateTimeToString(item.getDateAchat()));
-            if(StringUtil.isNotEmpty(item.getTotal()))
+            if (StringUtil.isNotEmpty(item.getTotal()))
                 dto.setTotal(item.getTotal());
-            if(StringUtil.isNotEmpty(item.getTotalPaye()))
+            if (StringUtil.isNotEmpty(item.getTotalPaye()))
                 dto.setTotalPaye(item.getTotalPaye());
-            if(StringUtil.isNotEmpty(item.getDescription()))
+            if (StringUtil.isNotEmpty(item.getDescription()))
                 dto.setDescription(item.getDescription());
-            if(this.client && item.getClient()!=null) {
-                dto.setClient(clientConverter.toDto(item.getClient())) ;
+            if (this.client && item.getClient() != null) {
+                dto.setClient(clientConverter.toDto(item.getClient()));
             }
-        if(this.achatItems && ListUtil.isNotEmpty(item.getAchatItems())){
-            achatItemConverter.init(true);
-            achatItemConverter.setAchat(false);
-            dto.setAchatItems(achatItemConverter.toDto(item.getAchatItems()));
-            achatItemConverter.setAchat(true);
+            if (this.achatItems && ListUtil.isNotEmpty(item.getAchatItems())) {
+                achatItemConverter.init(true);
+                achatItemConverter.setAchat(false);
+                dto.setAchatItems(achatItemConverter.toDto(item.getAchatItems()));
+                achatItemConverter.setAchat(true);
 
-        }
+            }
 
 
-        return dto;
+            return dto;
         }
     }
 
@@ -106,34 +111,43 @@ public class AchatConverter extends AbstractConverter<Achat, AchatDto> {
     }
 
 
-    public AchatItemConverter getAchatItemConverter(){
+    public AchatItemConverter getAchatItemConverter() {
         return this.achatItemConverter;
     }
-    public void setAchatItemConverter(AchatItemConverter achatItemConverter ){
+
+    public void setAchatItemConverter(AchatItemConverter achatItemConverter) {
         this.achatItemConverter = achatItemConverter;
     }
-    public ClientConverter getClientConverter(){
+
+    public ClientConverter getClientConverter() {
         return this.clientConverter;
     }
-    public void setClientConverter(ClientConverter clientConverter ){
+
+    public void setClientConverter(ClientConverter clientConverter) {
         this.clientConverter = clientConverter;
     }
-    public ProduitConverter getProduitConverter(){
+
+    public ProduitConverter getProduitConverter() {
         return this.produitConverter;
     }
-    public void setProduitConverter(ProduitConverter produitConverter ){
+
+    public void setProduitConverter(ProduitConverter produitConverter) {
         this.produitConverter = produitConverter;
     }
-    public boolean  isClient(){
+
+    public boolean isClient() {
         return this.client;
     }
-    public void  setClient(boolean client){
+
+    public void setClient(boolean client) {
         this.client = client;
     }
-    public boolean  isAchatItems(){
-        return this.achatItems ;
+
+    public boolean isAchatItems() {
+        return this.achatItems;
     }
-    public void  setAchatItems(boolean achatItems ){
-        this.achatItems  = achatItems ;
+
+    public void setAchatItems(boolean achatItems) {
+        this.achatItems = achatItems;
     }
 }

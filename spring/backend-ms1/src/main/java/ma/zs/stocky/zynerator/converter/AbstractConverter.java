@@ -13,14 +13,18 @@ import ma.zs.stocky.zynerator.util.DateUtil;
 import ma.zs.stocky.zynerator.util.RefelexivityUtil;
 import ma.zs.stocky.zynerator.util.StringUtil;
 import ma.zs.stocky.zynerator.util.Utils;
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public abstract class AbstractConverter<T extends BusinessObject, DTO extends BaseDto> {
-    protected int maxLevel = 2;
     protected Class<T> itemType;
     protected Class<DTO> dtoType;
 
@@ -35,24 +39,31 @@ public abstract class AbstractConverter<T extends BusinessObject, DTO extends Ba
     public abstract DTO toDto(T item);
 
     public void copy(DTO dto, T t) {
-        T myItem = toItem(dto);
-        Utils.copyNonNullProperties(myItem,t);
-    }
-/*
-    public void convertEtablissement(T item, DTO dto) {
-        if (dto.getEtablissementDto() != null && dto.getEtablissementDto().getId() != null) {
-            item.setEtablissement(new Etablissement());
-            item.getEtablissement().setId(dto.getEtablissementDto().getId());
+        if (dto != null && t != null) {
+            copyNonNullProperties(dto, t);
         }
     }
 
-    public void convertEtablissement(DTO dto, T item) {
-        if (item.getEtablissement() != null && item.getEtablissement().getId() != null) {
-            dto.setEtablissementDto(new EtablissementDto());
-            dto.getEtablissementDto().setId(item.getEtablissement().getId());
+    public List<T> copy(List<DTO> dtos) {
+        List<T> result = new ArrayList<>();
+        if (dtos != null) {
+            for (DTO dto : dtos) {
+                T instance = null;
+                try {
+                    instance = itemType.getDeclaredConstructor().newInstance();
+                    copy(dto, instance);
+                } catch (Exception e) {
+
+                }
+                if (instance != null) {
+                    result.add(instance);
+                }
+            }
         }
+        return result.isEmpty() ? null : result;
     }
-*/
+
+
     public List<T> toItem(List<DTO> dtos) {
         List<T> items = new ArrayList<>();
         if (dtos != null && !dtos.isEmpty()) {
@@ -63,42 +74,6 @@ public abstract class AbstractConverter<T extends BusinessObject, DTO extends Ba
         return items;
     }
 
-    public T getById(DTO dto) {
-        T result = null;
-        if (dto != null) {
-            try {
-                result = itemType.getDeclaredConstructor(Long.class).newInstance(dto.getId());
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                     InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return result;
-    }
-
-    public DTO getById(T t) {
-        DTO result = null;
-        if (t != null) {
-            try {
-                result = dtoType.getDeclaredConstructor(Long.class).newInstance(t.getId());
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                     InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return result;
-    }
-
-
-    public List<DTO> toDto(List<T> items) {
-        List<DTO> dtos = new ArrayList();
-        if (items != null && !items.isEmpty()) {
-            for (T item : items) {
-                dtos.add(toDto(item));
-            }
-        }
-        return dtos;
-    }
 
     public List<DTO> toDto(List<T> items) {
         List<DTO> dtos = new ArrayList<>();
@@ -110,24 +85,36 @@ public abstract class AbstractConverter<T extends BusinessObject, DTO extends Ba
         return dtos;
     }
 
-                                                        public void initObject(boolean initialisationObject){
+    public void initObject(boolean initialisationObject) {
 
     }
 
-    public void initList(boolean initialisationList){
+    public void initList(boolean initialisationList) {
 
     }
 
-    public void init(boolean initialisation){
+    public void init(boolean initialisation) {
         initObject(initialisation);
         initList(initialisation);
     }
 
-    public int getMaxLevel() {
-        return maxLevel;
+
+    private void copyNonNullProperties(Object src, Object target) {
+        BeanUtils.copyProperties(src, target, getNullPropertyNames(src));
     }
 
-    public void setMaxLevel(int maxLevel) {
-        this.maxLevel = maxLevel;
+    private static String[] getNullPropertyNames(Object source) {
+        final BeanWrapper src = new BeanWrapperImpl(source);
+        java.beans.PropertyDescriptor[] pds = src.getPropertyDescriptors();
+
+        Set<String> emptyNames = new HashSet<>();
+        for (java.beans.PropertyDescriptor pd : pds) {
+            Object srcValue = src.getPropertyValue(pd.getName());
+            if (srcValue == null) emptyNames.add(pd.getName());
+        }
+
+        String[] result = new String[emptyNames.size()];
+        return emptyNames.toArray(result);
     }
+
 }
