@@ -47,8 +47,6 @@ return (
     </View>
 </TouchableOpacity>
 </SafeAreaView>
-
-    </SafeAreaView>
 );
 };
 

@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, SafeAreaView, Keyboard, TouchableOpacity } from 'react-native';
+import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import CustomInput from '../../../../../../zynerator/CustomInput';
@@ -12,7 +12,10 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {ClientAdminService} from '../../../../../../controller/service/admin/commun/ClientAdminService.service';
 import  {ClientDto}  from '../../../../../../controller/model/commun/Client.model';
-
+import React from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import {globalStyle} from "../../../../../../shared/globalStyle";
+import {truncateText} from "../../../../../../shared/utils";
 
 const ClientAdminCreate = () => {
 
