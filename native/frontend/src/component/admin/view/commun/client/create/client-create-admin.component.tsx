@@ -1,21 +1,14 @@
-import {View, Text, SafeAreaView, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import {Keyboard, SafeAreaView, ScrollView, Text, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {useForm} from 'react-hook-form';
 import CustomInput from '../../../../../../zynerator/CustomInput';
 import CustomButton from '../../../../../../zynerator/CustomButton';
-import { ScrollView } from 'react-native-gesture-handler';
-import { AxiosResponse } from 'axios';
 import SaveFeedbackModal from '../../../../../../zynerator/SaveFeedbackModal';
 import Collapsible from 'react-native-collapsible';
-import FilterModal from '../../../../../../zynerator/FilterModal';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {ClientAdminService} from '../../../../../../controller/service/admin/commun/ClientAdminService.service';
-import  {ClientDto}  from '../../../../../../controller/model/commun/Client.model';
-import React from 'react';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import {ClientDto} from '../../../../../../controller/model/commun/Client.model';
 import {globalStyle} from "../../../../../../shared/globalStyle";
-import {truncateText} from "../../../../../../shared/utils";
 
 const ClientAdminCreate = () => {
 
@@ -67,12 +60,12 @@ const ClientAdminCreate = () => {
     };
 
 return(
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#e6e8fa' }} >
-        <ScrollView style={{ margin: 20, marginBottom: 80 }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled" >
-            <Text style={{ fontSize: 30, fontWeight: 'bold', alignSelf: 'center', marginBottom: 10 }} >Create Client</Text>
+    <SafeAreaView style={globalStyle.safeAreaViewCreate} >
+        <ScrollView style={globalStyle.scrolllViewCreate} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled" >
+            <Text style={globalStyle.textHeaderCreate} >Create Client</Text>
 
-            <TouchableOpacity onPress={clientCollapsible} style={{ backgroundColor: 'orange', padding: 10, borderRadius: 10, marginVertical: 5 }}>
-                <Text style={{ textAlign: 'center', fontWeight: 'bold', fontSize: 20 }}>Client</Text>
+            <TouchableOpacity onPress={clientCollapsible} style={globalStyle.touchableOpacityCreate}>
+                <Text style={globalStyle.touchableOpacityButtonCreate}>Client</Text>
             </TouchableOpacity>
 
             <Collapsible collapsed={isClientCollapsed}>

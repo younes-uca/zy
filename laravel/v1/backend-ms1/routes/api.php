@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\commun\ProduitRestAdmin;
 use App\Http\Controllers\admin\achat\AchatRestAdmin;
 use App\Http\Controllers\admin\achat\AchatItemRestAdmin;
 
+use App\Http\Controllers\auth\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,10 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/admin/register', [AuthController::class, 'register']);  // to discust later
 
 Route::get('/admin/client/', [ClientRestAdmin::class, 'findAll']);
 Route::post('/admin/client/', [ClientRestAdmin::class, 'save']);

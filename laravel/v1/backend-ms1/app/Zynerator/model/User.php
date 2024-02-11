@@ -2,72 +2,61 @@
 
 namespace App\zynerator\model;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Collection;
+use Laravel\Sanctum\HasApiTokens;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
-    use Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = 'user_app';
+    /// i added this method
+    public function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
 
+    /// i added this method
+    public function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
     protected $fillable = [
-        'username', 'password', 'prenom', 'nom', 'email',
+        // 'name',
+        'email',
+        'password',
+
+        /// i added this
+        'username',
+        'prenom',
+        'nom',
     ];
 
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
     protected $hidden = [
         'password',
+        'remember_token',
     ];
 
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
     protected $casts = [
-        'credentialsNonExpired' => 'boolean',
-        'enabled' => 'boolean',
-        'accountNonExpired' => 'boolean',
-        'accountNonLocked' => 'boolean',
-        'passwordChanged' => 'boolean',
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
     ];
-
-    protected $dates = [
-        'createdAt', 'updatedAt',
-    ];
-
-    public function roles()
-    {
-        return $this->belongsToMany(Role::class, 'users_roles', 'USER_ID', 'ROLE_ID');
-    }
-
-
-    public function setRolesAttribute(Collection $roles)
-    {
-        $this->roles()->sync($roles->pluck('id')->all());
-    }
-
-    public function setEnabledAttribute($value)
-    {
-        $this->attributes['enabled'] = $value;
-    }
-
-    public function setEmailAttribute($value)
-    {
-        $this->attributes['email'] = $value;
-    }
-
-    public function setUsernameAttribute($value)
-    {
-        $this->attributes['username'] = $value;
-    }
-
-    public function getAuthoritiesAttribute()
-    {
-        if (is_null($this->attributes['authorities'])) {
-            $this->attributes['authorities'] = $this->roles;
-        }
-        return $this->attributes['authorities'];
-    }
-
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value);
-    }
 }

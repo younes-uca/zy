@@ -1,12 +1,11 @@
-import { View, Text, ScrollView } from 'react-native';
-import React, { useCallback, useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
+import {ScrollView, Text, View} from 'react-native';
+import React, {useCallback, useState} from 'react';
+import {NavigationProp, useFocusEffect, useNavigation} from '@react-navigation/native';
 import ConfirmDeleteModal from '../../../../../../zynerator/ConfirmDeleteModal';
-import { AxiosResponse } from 'axios';
+import {AxiosResponse} from 'axios';
 
 import {ClientAdminService} from '../../../../../../controller/service/admin/commun/ClientAdminService.service';
-import  {ClientDto}  from '../../../../../../controller/model/commun/Client.model';
+import {ClientDto} from '../../../../../../controller/model/commun/Client.model';
 import ClientAdminCard from "../card/client-card-admin.component";
 
 

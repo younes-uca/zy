@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from "react-native";
 
 export const globalStyle = StyleSheet.create({
 
@@ -13,7 +13,7 @@ export const globalStyle = StyleSheet.create({
         paddingHorizontal: 15,
         paddingVertical: 10,
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: {width: 0, height: 2},
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
     },
@@ -51,6 +51,9 @@ export const globalStyle = StyleSheet.create({
         //paddingHorizontal: 5,
         marginTop: 15,
         marginBottom: 10
+    },
+    myContainer: {
+        flex: 1,
     },
 
     input: {
@@ -133,5 +136,24 @@ export const globalStyle = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+
+    safeAreaViewCreate: {flex: 1, backgroundColor: '#e6e8fa'},
+    scrolllViewCreate: {margin: 20, marginBottom: 80},
+    textHeaderCreate: {fontSize: 30, fontWeight: 'bold', alignSelf: 'center', marginBottom: 10},
+    touchableOpacityCreate: { backgroundColor: 'orange', padding: 10, borderRadius: 10, marginVertical: 5 },
+    touchableOpacityButtonCreate: { textAlign: 'center', fontWeight: 'bold', fontSize: 20 },
+
+    safeAreaViewEdit: { flex: 1, backgroundColor: '#e6e8fa' },
+    scrolllViewEdit: {margin: 20, marginBottom: 80},
+    textHeaderEdit: {fontSize: 30, fontWeight: 'bold', alignSelf: 'center', marginBottom: 10},
+    touchableOpacityEdit: { backgroundColor: 'orange', padding: 10, borderRadius: 10, marginVertical: 5 },
+    touchableOpacityButtonEdit: { textAlign: 'center', fontWeight: 'bold', fontSize: 20 },
+
+    safeAreaViewView: {flex: 1, backgroundColor: '#e6e8fa'},
+    scrolllViewView: {margin: 20, marginBottom: 80},
+    textHeaderView: {fontSize: 30, fontWeight: 'bold', alignSelf: 'center', marginBottom: 10},
+    touchableOpacityView: { backgroundColor: 'orange', padding: 10, borderRadius: 10, marginVertical: 5 },
+    touchableOpacityButtonView: { textAlign: 'center', fontWeight: 'bold', fontSize: 20 },
+
 
 })

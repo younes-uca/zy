@@ -1,18 +1,15 @@
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, Keyboard } from 'react-native';
-import React, { useEffect, useState } from 'react';
-import { RouteProp } from '@react-navigation/native';
-import { useForm } from 'react-hook-form';
+import {Keyboard, SafeAreaView, Text} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {NavigationProp, RouteProp, useNavigation} from '@react-navigation/native';
+import {useForm} from 'react-hook-form';
 import CustomInput from '../../../../../../zynerator/CustomInput';
 import CustomButton from '../../../../../../zynerator/CustomButton';
-import { ScrollView, TextInput } from 'react-native-gesture-handler';
-import { useNavigation, NavigationProp } from '@react-navigation/native';
-import { AxiosResponse } from 'axios';
+import {ScrollView} from 'react-native-gesture-handler';
 import SaveFeedbackModal from '../../../../../../zynerator/SaveFeedbackModal';
-import FilterModal from '../../../../../../zynerator/FilterModal';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {ClientAdminService} from '../../../../../../controller/service/admin/commun/ClientAdminService.service';
-import  {ClientDto}  from '../../../../../../controller/model/commun/Client.model';
+import {ClientDto} from '../../../../../../controller/model/commun/Client.model';
+import {globalStyle} from "../../../../../../shared/globalStyle";
 
 
 type ClientUpdateScreenRouteProp = RouteProp<{ ClientUpdate: { client: ClientDto } }, 'ClientUpdate'>;
@@ -66,7 +63,7 @@ const ClientAdminEdit: React.FC<Props> = ({ route }) => {
     };
 
 return(
-    <SafeAreaView style={{ flex: 1, backgroundColor: '#e6e8fa' }}>
+    <SafeAreaView style={globalStyle.safeAreaViewEdit}>
 
         <ScrollView style={{ margin: 20 }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
 

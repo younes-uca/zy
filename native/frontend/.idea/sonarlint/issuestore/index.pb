@@ -35,3 +35,11 @@ N
 src/zynerator/PurchaseCard.tsx,8\3\83e3c986b1f1a1076386fc080030089aacfbc149
 D
 config/AppConfig.tsx,8\2\82cd955179970c3c57bb97c70545b34d7c61f03d
+{
+Ksrc/component/admin/view/commun/client/edit/client-edit-admin.component.tsx,3\9\3927be41b089410c6217205d8f7db23c1a5f0187
+{
+Ksrc/component/admin/view/commun/client/view/client-view-admin.component.tsx,9\f\9f94d61073464f055a3f06987e21db7af6c35d80
+…
+Usrc/component/admin/view/commun/client/container/client-container-admin.component.tsx,7\8\785cf42bd7f64a778ad37a3ed46d6c6bbf0aa10a
+I
+src/shared/globalStyle.ts,8\d\8dece9752a7ea2c3e46f31d9effbd1c59b282283

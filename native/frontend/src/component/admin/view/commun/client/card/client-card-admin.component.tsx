@@ -1,7 +1,8 @@
-import {SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {SafeAreaView, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {globalStyle} from "../../../../../../shared/globalStyle";
+import {truncateText} from "../../../../../../shared/utils";
 
 const ClientAdminCard = ({cin, nom, tel, email, adresse, description, creance, onPressDelete, onUpdate, onDetails}) => {
 
@@ -15,27 +16,27 @@ const ClientAdminCard = ({cin, nom, tel, email, adresse, description, creance, o
                             <Text style={globalStyle.label}>Cin: </Text>
                             <Text style={globalStyle.value}>{truncateText(cin)}</Text>
                         </View>
-                        <View style={styles.infos}>
+                        <View style={globalStyle.infos}>
                             <Text style={globalStyle.label}>Nom: </Text>
                             <Text style={globalStyle.value}>{truncateText(nom)}</Text>
                         </View>
-                        <View style={styles.infos}>
+                        <View style={globalStyle.infos}>
                             <Text style={globalStyle.label}>Tel: </Text>
                             <Text style={globalStyle.value}>{truncateText(tel)}</Text>
                         </View>
-                        <View style={styles.infos}>
+                        <View style={globalStyle.infos}>
                             <Text style={globalStyle.label}>Email: </Text>
                             <Text style={globalStyle.value}>{truncateText(email)}</Text>
                         </View>
-                        <View style={styles.infos}>
+                        <View style={globalStyle.infos}>
                             <Text style={globalStyle.label}>Adresse: </Text>
                             <Text style={globalStyle.value}>{truncateText(adresse)}</Text>
                         </View>
-                        <View style={styles.infos}>
+                        <View style={globalStyle.infos}>
                             <Text style={globalStyle.label}>Description: </Text>
                             <Text style={globalStyle.value}>{truncateText(description)}</Text>
                         </View>
-                        <View style={styles.infos}>
+                        <View style={globalStyle.infos}>
                             <Text style={globalStyle.label}>Creance: </Text>
                             <Text style={globalStyle.value}>{truncateText(creance)}</Text>
                         </View>
