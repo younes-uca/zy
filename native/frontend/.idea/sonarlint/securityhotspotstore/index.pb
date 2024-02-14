@@ -39,3 +39,7 @@ Ksrc/component/admin/view/commun/client/view/client-view-admin.component.tsx,9\
 Usrc/component/admin/view/commun/client/container/client-container-admin.component.tsx,7\8\785cf42bd7f64a778ad37a3ed46d6c6bbf0aa10a
 I
 src/shared/globalStyle.ts,8\d\8dece9752a7ea2c3e46f31d9effbd1c59b282283
+|
+Lsrc/component/admin/view/stock/achat/create/achat-create-admin.component.tsx,6\d\6de07f74e4d0092c8284a5802b23117ba7ebe0b1
+^
+.src/controller/model/stock/AchatItem.model.tsx,c\1\c17b39ee9b3991bdd05d98fa8088c12d31c1c235

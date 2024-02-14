@@ -7,6 +7,7 @@ import {AxiosResponse} from 'axios';
 import {ClientAdminService} from '../../../../../../controller/service/admin/commun/ClientAdminService.service';
 import {ClientDto} from '../../../../../../controller/model/commun/Client.model';
 import ClientAdminCard from "../card/client-card-admin.component";
+import {globalStyle} from "../../../../../../shared/globalStyle";
 
 
 const ClientAdminList: React.FC = () =>  {
@@ -77,9 +78,9 @@ const ClientAdminList: React.FC = () =>  {
     };
 
 return(
-    <ScrollView showsVerticalScrollIndicator={false} style={{ paddingHorizontal: 10, backgroundColor: '#e6e8fa' }}>
+    <ScrollView showsVerticalScrollIndicator={false} style={globalStyle.scrollViewList}>
 
-        <Text style={{ fontSize: 30, fontWeight: 'bold', alignSelf: 'center', marginVertical: 10, }} >Client List</Text>
+        <Text  style={globalStyle.textHeaderList} >Client List</Text>
 
         <View style={{ marginBottom: 100 }}>
             {clients && clients.length > 0 ? ( clients.map((client) => (
@@ -96,7 +97,7 @@ return(
                     onDetails={() => handleFetchAndDetails(client.id)}
                 />
                 )) ) : (
-                <Text style={{ fontSize: 20, textAlign: 'center', color: 'red', marginTop: 20 }}>No clients found.</Text>
+                <Text style={globalStyle.textNotFound}>No clients found.</Text>
             )}
         </View>
 

@@ -33,7 +33,6 @@ import { AchatItemListAdminComponent } from './achat-item/list/achat-item-list-a
                                 {
                                     path: 'list',
                                     component: ActionPermissionListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -45,7 +44,6 @@ import { AchatItemListAdminComponent } from './achat-item/list/achat-item-list-a
                                 {
                                     path: 'list',
                                     component: ModelPermissionUserListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -56,7 +54,6 @@ import { AchatItemListAdminComponent } from './achat-item/list/achat-item-list-a
                                 {
                                     path: 'list',
                                     component: RoleListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -67,7 +64,6 @@ import { AchatItemListAdminComponent } from './achat-item/list/achat-item-list-a
                                 {
                                     path: 'list',
                                     component: UserListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -79,7 +75,6 @@ import { AchatItemListAdminComponent } from './achat-item/list/achat-item-list-a
                                 {
                                     path: 'list',
                                     component: ModelPermissionListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -92,7 +87,6 @@ import { AchatItemListAdminComponent } from './achat-item/list/achat-item-list-a
                                 {
                                     path: 'list',
                                     component: AchatListAdminComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -104,7 +98,6 @@ import { AchatItemListAdminComponent } from './achat-item/list/achat-item-list-a
                                 {
                                     path: 'list',
                                     component: AchatItemListAdminComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },

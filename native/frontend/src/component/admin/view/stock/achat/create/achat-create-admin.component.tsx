@@ -19,6 +19,7 @@ import {ClientDto} from '../../../../../../controller/model/commun/Client.model'
 import {ClientAdminService} from '../../../../../../controller/service/admin/commun/ClientAdminService.service';
 import {ProduitDto} from '../../../../../../controller/model/commun/Produit.model';
 import {ProduitAdminService} from '../../../../../../controller/service/admin/commun/ProduitAdminService.service';
+import {globalStyle} from "../../../../../../shared/globalStyle";
 
 const AchatAdminCreate = () => {
 
@@ -198,7 +199,7 @@ return(
                             <CustomInput control={control} name={'reference'} placeholder={'Reference'} keyboardT="default" />
                             <CustomInput control={control} name={'dateAchat'} placeholder={'Date achat'} keyboardT="numeric" />
                             <CustomInput control={control} name={'description'} placeholder={'Description'} keyboardT="default" />
-                        <TouchableOpacity onPress={() => setClientModalVisible(true)} style={styles.placeHolder} >
+                        <TouchableOpacity onPress={() => setClientModalVisible(true)} style={globalStyle.placeHolder} >
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                                 <Text>{selectedClient.nom}</Text>
                                 <Ionicons name="caret-down-outline" size={22} color={'black'} />
@@ -210,7 +211,7 @@ return(
             </TouchableOpacity>
 
             <Collapsible collapsed={isAchatItemsElementCollapsed}>
-                <TouchableOpacity onPress={() => setProduitModalVisible(true)} style={styles.placeHolder} >
+                <TouchableOpacity onPress={() => setProduitModalVisible(true)} style={globalStyle.placeHolder} >
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Text>{selectedProduit.reference}</Text>
                         <Ionicons name="caret-down-outline" size={22} color={'black'} />
@@ -233,14 +234,14 @@ return(
             </TouchableOpacity>
             <Collapsible collapsed={isAchatItemsElementsCollapsed}>
                 { achatItems && achatItemsElements.length > 0 ? ( achatItemsElements.map((item, index) => (
-                    <View key={index} style={styles.itemCard}>
+                    <View key={index} style={globalStyle.itemCard}>
                         <View>
-                            <Text style={styles.infos}>'Produit: {item.produit.reference}</Text>
-                            <Text style={styles.infos}>'Prix unitaire: {item.prixUnitaire}</Text>
-                            <Text style={styles.infos}>'Prix vente: {item.prixVente}</Text>
-                            <Text style={styles.infos}>'Quantite: {item.quantite}</Text>
-                            <Text style={styles.infos}>'Quantite avoir: {item.quantiteAvoir}</Text>
-                            <Text style={styles.infos}>'Remise: {item.remise}</Text>
+                            <Text style={globalStyle.infos}>'Produit: {item.produit.reference}</Text>
+                            <Text style={globalStyle.infos}>'Prix unitaire: {item.prixUnitaire}</Text>
+                            <Text style={globalStyle.infos}>'Prix vente: {item.prixVente}</Text>
+                            <Text style={globalStyle.infos}>'Quantite: {item.quantite}</Text>
+                            <Text style={globalStyle.infos}>'Quantite avoir: {item.quantiteAvoir}</Text>
+                            <Text style={globalStyle.infos}>'Remise: {item.remise}</Text>
                         </View>
                         <View style={{ alignItems: 'center', flexDirection: 'column', justifyContent: 'space-between' }}>
                             <TouchableOpacity onPress={() => handleDeleteAchatItems(index)}>
@@ -252,8 +253,8 @@ return(
                         </View>
                     </View>
                 )) ) : (
-                    <View style={styles.itemCard}>
-                        <Text style={styles.infos}>No achat items yet.</Text>
+                    <View style={globalStyle.itemCard}>
+                        <Text style={globalStyle.infos}>No achat items yet.</Text>
                     </View>
                 )}
             </Collapsible>

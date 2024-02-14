@@ -20,62 +20,83 @@ class Client extends Model
     ];
 
 
-
-
-
-    public getId(){
+    public function getId(): int
+    {
         return $this->attributes['$id'];
     }
-    public void setId($id){
+
+    public function setId($id): void
+    {
         $this->attributes['id'] = $id;
     }
 
-    public getCin(){
+    public function getCin()
+    {
         return $this->attributes['$cin'];
     }
-    public void setCin($cin){
+
+    public function setCin($cin)
+    {
         $this->attributes['cin'] = $cin;
     }
 
-    public getNom(){
+    public function getNom()
+    {
         return $this->attributes['$nom'];
     }
-    public void setNom($nom){
+
+    public function setNom($nom)
+    {
         $this->attributes['nom'] = $nom;
     }
 
-    public getTel(){
+    public function getTel()
+    {
         return $this->attributes['$tel'];
     }
-    public void setTel($tel){
+
+    public function setTel($tel)
+    {
         $this->attributes['tel'] = $tel;
     }
 
-    public getEmail(){
+    public function getEmail()
+    {
         return $this->attributes['$email'];
     }
-    public void setEmail($email){
+
+    public function setEmail($email)
+    {
         $this->attributes['email'] = $email;
     }
 
-    public getAdresse(){
+    public function getAdresse()
+    {
         return $this->attributes['$adresse'];
     }
-    public void setAdresse($adresse){
+
+    public function setAdresse($adresse)
+    {
         $this->attributes['adresse'] = $adresse;
     }
 
-    public getDescription(){
+    public function getDescription()
+    {
         return $this->attributes['$description'];
     }
-    public void setDescription($description){
+
+    public function setDescription($description)
+    {
         $this->attributes['description'] = $description;
     }
 
-    public getCreance(){
+    public function getCreance()
+    {
         return $this->attributes['$creance'];
     }
-    public void setCreance($creance){
+
+    public function setCreance($creance)
+    {
         $this->attributes['creance'] = $creance;
     }
 

@@ -155,5 +155,8 @@ export const globalStyle = StyleSheet.create({
     touchableOpacityView: { backgroundColor: 'orange', padding: 10, borderRadius: 10, marginVertical: 5 },
     touchableOpacityButtonView: { textAlign: 'center', fontWeight: 'bold', fontSize: 20 },
 
+    scrollViewList: { paddingHorizontal: 10, backgroundColor: '#e6e8fa' },
+    textHeaderList: { fontSize: 30, fontWeight: 'bold', alignSelf: 'center', marginVertical: 10, },
+    textNotFound: { fontSize: 20, textAlign: 'center', color: 'red', marginTop: 20 }
 
 })

@@ -33,7 +33,6 @@ import { ProduitListAdminComponent } from './produit/list/produit-list-admin.com
                                 {
                                     path: 'list',
                                     component: ActionPermissionListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -45,7 +44,6 @@ import { ProduitListAdminComponent } from './produit/list/produit-list-admin.com
                                 {
                                     path: 'list',
                                     component: ModelPermissionUserListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -56,7 +54,6 @@ import { ProduitListAdminComponent } from './produit/list/produit-list-admin.com
                                 {
                                     path: 'list',
                                     component: RoleListComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                             ]
                         },
@@ -67,7 +64,7 @@ import { ProduitListAdminComponent } from './produit/list/produit-list-admin.com
                                 {
                                     path: 'list',
                                     component: UserListComponent ,
-                                    canActivate: [AuthGuard]
+                                    
                                 }
                             ]
                         },
@@ -79,7 +76,7 @@ import { ProduitListAdminComponent } from './produit/list/produit-list-admin.com
                                 {
                                     path: 'list',
                                     component: ModelPermissionListComponent ,
-                                    canActivate: [AuthGuard]
+                                    
                                 }
                             ]
                         },
@@ -92,7 +89,7 @@ import { ProduitListAdminComponent } from './produit/list/produit-list-admin.com
                                 {
                                     path: 'list',
                                     component: ClientListAdminComponent ,
-                                    canActivate: [AuthGuard]
+                                    
                                 }
                             ]
                         },
@@ -104,7 +101,7 @@ import { ProduitListAdminComponent } from './produit/list/produit-list-admin.com
                                 {
                                     path: 'list',
                                     component: ProduitListAdminComponent ,
-                                    canActivate: [AuthGuard]
+                                    
                                 }
                             ]
                         },

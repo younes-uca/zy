@@ -67,7 +67,7 @@ return(
 
         <ScrollView style={{ margin: 20 }} showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
 
-            <Text style={{ fontSize: 30, fontWeight: 'bold', alignSelf: 'center', marginBottom: 10 }} >Update Client</Text>
+            <Text style={globalStyle.textHeaderEdit} >Update Client</Text>
 
             <CustomInput control={control} name={'cin'} placeholder={'Cin'} keyboardT="default" />
             <CustomInput control={control} name={'nom'} placeholder={'Nom'} keyboardT="default" />

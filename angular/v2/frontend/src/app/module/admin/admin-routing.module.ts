@@ -21,7 +21,6 @@ import { RegisterAdminComponent } from './register-admin/register-admin.componen
                                 {
                                     path: '',
                                     component: LoginAdminComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                               ]
                         },
@@ -31,24 +30,23 @@ import { RegisterAdminComponent } from './register-admin/register-admin.componen
                                 {
                                     path: '',
                                     component: RegisterAdminComponent ,
-                                    canActivate: [AuthGuard]
                                 }
                               ]
                         },
                         {
                             path: 'commun',
                             loadChildren: () => import('./view/commun/commun-admin-routing.module').then(x => x.CommunAdminRoutingModule),
-                            canActivate: [AuthGuard],
+                            //canActivate: [AuthGuard],
                         },
                         {
                             path: 'stock',
                             loadChildren: () => import('./view/stock/stock-admin-routing.module').then(x => x.StockAdminRoutingModule),
-                            canActivate: [AuthGuard],
+                            //canActivate: [AuthGuard],
                         },
                         {
                             path: 'security',
                             loadChildren: () => import('../security/security-routing.module').then(x => x.SecurityRoutingModule),
-                            canActivate: [AuthGuard],
+                            //canActivate: [AuthGuard],
                         }
                     ]
                 },
