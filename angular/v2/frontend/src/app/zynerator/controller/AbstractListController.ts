@@ -1,4 +1,4 @@
-import {catchError, forkJoin, Observable, of, tap} from 'rxjs';
+import {forkJoin, Observable, of} from 'rxjs';
 import {ConfirmationService, MenuItem, MessageService} from 'primeng/api';
 import {DatePipe} from '@angular/common';
 import {Router} from '@angular/router';
@@ -15,6 +15,7 @@ import {ServiceLocator} from 'src/app/zynerator/service/ServiceLocator';
 import {StringUtilService} from 'src/app/zynerator/util/StringUtil.service';
 
 import { AuthService } from 'src/app/zynerator/security/controller/service/Auth.service';
+import {catchError, tap} from 'rxjs/operators';
 
 
 @Injectable()

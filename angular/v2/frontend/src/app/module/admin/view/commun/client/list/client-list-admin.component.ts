@@ -24,7 +24,7 @@ export class ClientListAdminComponent extends AbstractListController<ClientDto, 
 
     ngOnInit(): void {
         this.activateSecurityConstraint('Client').subscribe(() => {
-            if (true || this.listActionIsValid){
+            if (this.listActionIsValid){
                 this.findPaginatedByCriteria();
                 this.initExport();
                 this.initCol();
