@@ -1,0 +1,64 @@
+import {Injectable} from '@nestjs/common';
+import {InjectRepository} from '@nestjs/typeorm';
+import {Repository, SelectQueryBuilder} from 'typeorm';
+import {AbstractRepository} from "src/app/zynerator/repository/AbstractRepository";
+
+import {RoleUser} from "src/app/shared/bean/core/security/RoleUser";
+import {RoleUserDto} from "src/app/shared/dto/security/RoleUserDto";
+import {RoleUserCriteria} from "src/app/shared/dao/criteria/core/security/RoleUserCriteria";
+
+@Injectable()
+export class RoleUserDao extends AbstractRepository<RoleUser, RoleUserCriteria> {
+
+    constructor(@InjectRepository(RoleUser) private readonly repository: Repository<RoleUser>,) {
+        super(repository);
+    }
+
+    async save(item: RoleUser): Promise<RoleUser> {
+        const savedItem = await this.repository.save(item);
+        return savedItem;
+    }
+
+
+    async saveOrUpdate(item: RoleUser): Promise<RoleUser> {
+        if (item.id) {
+            const entity = await this.findById(item.id);
+            if (!entity) {
+                throw new Error('Entity not found');
+            }
+            Object.assign(entity, item);
+            return this.repository.save(entity);
+        } else {
+            return this.repository.save(item);
+        }
+    }
+
+    async  findAllOptimized(): Promise<RoleUserDto[]> {
+        return this.repository
+                    .createQueryBuilder('item')
+                    .select(['item.id AS id'])
+                    .getRawMany()
+                    .then((result) => result.map((row) => new RoleUserDto(row.id)));
+
+
+    }
+
+    async  findAll(): Promise<RoleUser[]> {
+        return this.repository.find();
+    }
+
+    async findById(id: number): Promise<RoleUser> {
+        return this.repository.findOne({where: {id}});
+    }
+
+
+    async deleteById(id: number): Promise<number> {
+        const result = await this.repository.delete({id});
+        return result.affected;
+    }
+
+    async findByUserId(id: number): Promise<RoleUser[]> {
+        return this.repository.find({where: {user: {id}}});
+    }
+
+    async deleteByUserI
