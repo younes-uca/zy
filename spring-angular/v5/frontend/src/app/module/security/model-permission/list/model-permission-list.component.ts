@@ -22,13 +22,9 @@ export class ModelPermissionListComponent extends AbstractListController<ModelPe
     }
 
     ngOnInit(): void {
-        this.activateSecurityConstraint('ModelPermission').subscribe(() => {
-        if (this.listActionIsValid) {
             this.findPaginatedByCriteria();
             this.initExport();
             this.initCol();
-        }
-        });
     }
 
 

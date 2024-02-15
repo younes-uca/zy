@@ -32,8 +32,6 @@ export class UserListComponent extends AbstractListController<UserDto, UserCrite
 
 
     ngOnInit(): void {
-        this.activateSecurityConstraint('User').subscribe(() => {
-        if (this.listActionIsValid) {
             this.findPaginatedByCriteria();
             this.initExport();
             this.initCol();
@@ -47,8 +45,6 @@ export class UserListComponent extends AbstractListController<UserDto, UserCrite
             this.yesOrNoAccountNonLocked = [{label: 'AccountNonLocked', value: null}, {label: 'Oui', value: 1}, {label: 'Non', value: 0}];
             this.yesOrNoPasswordChanged = [{label: 'PasswordChanged', value: null}, {label: 'Oui', value: 1}, {label: 'Non', value: 0}];
         }
-        });
-    }
 
 
     public initCol() {

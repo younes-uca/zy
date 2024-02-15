@@ -33,8 +33,6 @@ export class ModelPermissionUserListComponent extends AbstractListController<Mod
 
 
     ngOnInit(): void {
-        this.activateSecurityConstraint('ModelPermissionUser');
-        if (this.listActionIsValid) {
             this.findPaginatedByCriteria();
             this.initExport();
             this.initCol();
@@ -42,7 +40,6 @@ export class ModelPermissionUserListComponent extends AbstractListController<Mod
             this.loadModelPermission();
             this.loadUser();
             this.yesOrNoValue =  [{label: 'Value', value: null},{label: 'Oui', value: 1},{label: 'Non', value: 0}];
-        }
     }
 
 

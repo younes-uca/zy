@@ -42,20 +42,19 @@ export abstract class AbstractService<DTO extends BaseDto, CRITERIA extends Base
     private _deleteAction = 'delete';
     private _viewAction = 'view';
     private _duplicateAction = 'duplicate';
-    private _entityName: string ;
-    private _enableSecurity = true ;
+    private _entityName: string;
+    private _enableSecurity = false;
 
     protected API_PERMISSION = environment.apiUrl + 'modelPermissionUser/';
 
 
-
-    public hasActionPermission(username: string, actionReference: string): Observable<boolean>{
-    // tslint:disable-next-line:max-line-length
-        return  this.httpClient.get<boolean>(this.API_PERMISSION + 'user/' + username + '/model/' + this.entityName + '/action/' + actionReference) ;
+    public hasActionPermission(username: string, actionReference: string): Observable<boolean> {
+        // tslint:disable-next-line:max-line-length
+        return this.httpClient.get<boolean>(this.API_PERMISSION + 'user/' + username + '/model/' + this.entityName + '/action/' + actionReference);
     }
 
     public findSchedule(startTime: string, endTime: string): Observable<Array<ScheduleDto>> {
-        return this.httpClient.get<Array<ScheduleDto>>( this.API +  'start/' + startTime + '/end/' + endTime);
+        return this.httpClient.get<Array<ScheduleDto>>(this.API + 'start/' + startTime + '/end/' + endTime);
     }
 
     public importExcel(file: File): Observable<Array<DTO>> {
@@ -65,7 +64,7 @@ export abstract class AbstractService<DTO extends BaseDto, CRITERIA extends Base
     }
 
     public findByMonth(month: number): Observable<Array<ScheduleDto>> {
-        return this.httpClient.get<Array<ScheduleDto>>( this.API + 'month/' + month);
+        return this.httpClient.get<Array<ScheduleDto>>(this.API + 'month/' + month);
     }
 
     public initStepper(): void {
@@ -98,7 +97,7 @@ export abstract class AbstractService<DTO extends BaseDto, CRITERIA extends Base
 
 
     public findPaginatedByCriteria(criteria: CRITERIA): Observable<PaginatedList<DTO>> {
-            return this.httpClient.post<PaginatedList<DTO>>(this.API + 'find-paginated-by-criteria', criteria);
+        return this.httpClient.post<PaginatedList<DTO>>(this.API + 'find-paginated-by-criteria', criteria);
     }
 
     public findAll() {
@@ -131,20 +130,21 @@ export abstract class AbstractService<DTO extends BaseDto, CRITERIA extends Base
         return this.httpClient.get<DTO>(this.API + 'id/' + item.id);
     }
 
-    public deleteMultiple(){
+    public deleteMultiple() {
         return this.httpClient.post<void>(this.API + 'multiple', this.selections);
     }
 
     public upload(formData: FormData, i: number) {
-        this.httpClient.post<FileTempDto>(this.API + 'upload', formData).subscribe(data=> this.fileTempDtosForOne[i] = data);
+        this.httpClient.post<FileTempDto>(this.API + 'upload', formData).subscribe(data => this.fileTempDtosForOne[i] = data);
     }
+
     public uploadMultiple(formData: FormData, i: number) {
-        this.httpClient.post<FileTempDto[]>(this.API + 'upload-multiple', formData).subscribe(data=> this.fileTempDtos[i] = data);
+        this.httpClient.post<FileTempDto[]>(this.API + 'upload-multiple', formData).subscribe(data => this.fileTempDtos[i] = data);
 
     }
 
-    public exportPdf(element: DTO): Observable<ArrayBuffer>{
-        return this.httpClient.post(this.API +'exportPdf/' ,element, {  responseType : 'arraybuffer' });
+    public exportPdf(element: DTO): Observable<ArrayBuffer> {
+        return this.httpClient.post(this.API + 'exportPdf/', element, {responseType: 'arraybuffer'});
     }
 
     public format(myDate: Date): Date {
@@ -154,6 +154,7 @@ export abstract class AbstractService<DTO extends BaseDto, CRITERIA extends Base
         }
         return myDate;
     }
+
     public get items(): Array<DTO> {
         if (this._items == null) {
             this._items = new Array<DTO>();

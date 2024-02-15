@@ -29,15 +29,14 @@ export class AchatItemListAdminComponent extends AbstractListController<AchatIte
     }
 
     ngOnInit(): void {
-        this.activateSecurityConstraint('AchatItem').subscribe(() => {
-            if (this.listActionIsValid){
+        //this.activateSecurityConstraint('AchatItem').subscribe(() => {
+            if (true || this.listActionIsValid){
                 this.findPaginatedByCriteria();
                 this.initExport();
                 this.initCol();
                 this.loadProduit();
                 this.loadAchat();
             }
-        });
     }
 
 

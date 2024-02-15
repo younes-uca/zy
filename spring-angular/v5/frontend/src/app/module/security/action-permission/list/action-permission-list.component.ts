@@ -20,14 +20,11 @@ export class ActionPermissionListComponent extends AbstractListController<Action
     }
 
     ngOnInit(): void {
-        this.activateSecurityConstraint('ActionPermission').subscribe(() => {
-        if (this.listActionIsValid) {
+
             this.findPaginatedByCriteria();
             this.initExport();
             this.initCol();
         }
-        });
-    }
 
 
     public initCol() {

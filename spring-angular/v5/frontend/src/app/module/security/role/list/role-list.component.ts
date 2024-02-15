@@ -22,12 +22,9 @@ export class RoleListComponent extends AbstractListController<RoleDto, RoleCrite
     }
 
     ngOnInit(): void {
-        this.activateSecurityConstraint('Role');
-        if (this.listActionIsValid) {
             this.findPaginatedByCriteria();
             this.initExport();
             this.initCol();
-        }
     }
 
 

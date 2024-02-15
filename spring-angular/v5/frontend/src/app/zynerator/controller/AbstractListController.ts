@@ -51,8 +51,8 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
         this.confirmationService = ServiceLocator.injector.get(ConfirmationService);
         this.roleService = ServiceLocator.injector.get(RoleService);
         this.router = ServiceLocator.injector.get(Router);
-        this.authService= ServiceLocator.injector.get(AuthService);
-        this.exportService= ServiceLocator.injector.get(ExportService);
+        this.authService = ServiceLocator.injector.get(AuthService);
+        this.exportService = ServiceLocator.injector.get(ExportService);
     }
 
     init(): void {
@@ -63,22 +63,29 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
 
     public activateSecurityConstraint(entityName: string) {
         this.entityName = entityName;
-
-        const createActionPermission = this.hasCreateActionPermission(this.createAction);
-        const editActionPermission = this.hasEditeActionPermission(this.editAction);
-        const deleteActionPermission = this.hasDeleteActionPermission(this.deleteAction);
-        const listActionPermission = this.hasListActionPermission(this.listAction);
-        const duplicateActionPermission = this.hasDuplicateActionPermission(this.duplicateAction);
-        const viewActionPermission = this.hasViewActionPermission(this.viewAction);
-
-        return forkJoin([
-            createActionPermission,
-            editActionPermission,
-            deleteActionPermission,
-            listActionPermission,
-            duplicateActionPermission,
-            viewActionPermission
-        ]);
+        this.createActionIsValid = true;
+        this.editActionIsValid = true;
+        this.deleteActionIsValid = true;
+        this.listActionIsValid = true;
+        this.duplicateActionIsValid = true;
+        this.viewActionIsValid = true;
+        if (this.enableSecurity){
+            const createActionPermission = this.hasCreateActionPermission(this.createAction);
+            const editActionPermission = this.hasEditeActionPermission(this.editAction);
+            const deleteActionPermission = this.hasDeleteActionPermission(this.deleteAction);
+            const listActionPermission = this.hasListActionPermission(this.listAction);
+            const duplicateActionPermission = this.hasDuplicateActionPermission(this.duplicateAction);
+            const viewActionPermission = this.hasViewActionPermission(this.viewAction);
+            return forkJoin([
+                createActionPermission,
+                editActionPermission,
+                deleteActionPermission,
+                listActionPermission,
+                duplicateActionPermission,
+                viewActionPermission
+            ]);
+        }
+        return new Observable<true>();
     }
 
     public hasCreateActionPermission(action: string) {
@@ -160,8 +167,8 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
     public importExcel(): void {
         if (this.excelFile) {
             this.service.importExcel(this.excelFile).subscribe(
-                response => {console.log('File uploaded successfully!', response);},
-                error => {console.error('Error uploading file:', error);}
+                response => {console.log('File uploaded successfully!', response); },
+                error => {console.error('Error uploading file:', error); }
             );
         }
     }
@@ -231,7 +238,7 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
 
 
     public isSelectionDisabled(): boolean {
-        return this.selections == null || this.selections.length == 0
+        return this.selections == null || this.selections.length == 0;
     }
 
 
@@ -254,7 +261,7 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
                         });
                     }
 
-                }, error => console.log(error))
+                }, error => console.log(error));
             }
         });
 
@@ -383,7 +390,7 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
     }
 
     set totalRecords(value: number) {
-        this._totalRecords = value
+        this._totalRecords = value;
     }
 
     get pdfName(): string {
