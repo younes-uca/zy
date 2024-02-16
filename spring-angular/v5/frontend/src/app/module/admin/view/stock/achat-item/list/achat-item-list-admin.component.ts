@@ -29,7 +29,7 @@ export class AchatItemListAdminComponent extends AbstractListController<AchatIte
     }
 
     ngOnInit(): void {
-        //this.activateSecurityConstraint('AchatItem').subscribe(() => {
+        this.activateSecurityConstraint('AchatItem').subscribe(() => {
             if (true || this.listActionIsValid){
                 this.findPaginatedByCriteria();
                 this.initExport();
@@ -37,6 +37,7 @@ export class AchatItemListAdminComponent extends AbstractListController<AchatIte
                 this.loadProduit();
                 this.loadAchat();
             }
+        });
     }
 
 

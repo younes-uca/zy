@@ -23,12 +23,13 @@ export class ProduitListAdminComponent extends AbstractListController<ProduitDto
     }
 
     ngOnInit(): void {
-        //this.activateSecurityConstraint('Produit').subscribe(() => {
+        this.activateSecurityConstraint('Produit').subscribe(() => {
             if (true || this.listActionIsValid){
                 this.findPaginatedByCriteria();
                 this.initExport();
                 this.initCol();
             }
+        });
     }
 
 

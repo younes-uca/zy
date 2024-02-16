@@ -1,5 +1,3 @@
-import {forkJoin, Observable, of} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
 import {ConfirmationService, MenuItem, MessageService} from 'primeng/api';
 import {DatePipe} from '@angular/common';
 import {Router} from '@angular/router';
@@ -15,7 +13,8 @@ import {BaseCriteria} from 'src/app/zynerator/criteria/BaseCriteria.model';
 import {ServiceLocator} from 'src/app/zynerator/service/ServiceLocator';
 import {StringUtilService} from 'src/app/zynerator/util/StringUtil.service';
 
-import { AuthService } from 'src/app/zynerator/security/controller/service/Auth.service';
+import {AuthService} from 'src/app/zynerator/security/controller/service/Auth.service';
+import {forkJoin, Observable, of} from "rxjs";
 
 
 @Injectable()
@@ -29,7 +28,7 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
     protected fileName: string;
     protected _totalRecords = 0;
     private _pdfName: string;
-
+    protected _enableSecurity = false;
 
     protected datePipe: DatePipe;
     protected service: SERVICE;
@@ -41,7 +40,6 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
     protected authService: AuthService;
     protected exportService: ExportService;
     protected excelFile: File | undefined;
-
 
 
     constructor(service: SERVICE) {
@@ -60,33 +58,42 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
         this.initExport();
         this.initCol();
     }
+    //
 
     public activateSecurityConstraint(entityName: string) {
         this.entityName = entityName;
-        this.createActionIsValid = true;
-        this.editActionIsValid = true;
-        this.deleteActionIsValid = true;
-        this.listActionIsValid = true;
-        this.duplicateActionIsValid = true;
-        this.viewActionIsValid = true;
+        let createActionPermission = of(true);
+        let editActionPermission = of(true);
+        let deleteActionPermission = of(true);
+        let listActionPermission = of(true);
+        let duplicateActionPermission = of(true);
+        let viewActionPermission = of(true);
         if (this.enableSecurity){
-            const createActionPermission = this.hasCreateActionPermission(this.createAction);
-            const editActionPermission = this.hasEditeActionPermission(this.editAction);
-            const deleteActionPermission = this.hasDeleteActionPermission(this.deleteAction);
-            const listActionPermission = this.hasListActionPermission(this.listAction);
-            const duplicateActionPermission = this.hasDuplicateActionPermission(this.duplicateAction);
-            const viewActionPermission = this.hasViewActionPermission(this.viewAction);
-            return forkJoin([
-                createActionPermission,
-                editActionPermission,
-                deleteActionPermission,
-                listActionPermission,
-                duplicateActionPermission,
-                viewActionPermission
-            ]);
+            createActionPermission = this.hasCreateActionPermission(this.createAction);
+            editActionPermission = this.hasEditeActionPermission(this.editAction);
+            deleteActionPermission = this.hasDeleteActionPermission(this.deleteAction);
+            listActionPermission = this.hasListActionPermission(this.listAction);
+            duplicateActionPermission = this.hasDuplicateActionPermission(this.duplicateAction);
+            viewActionPermission = this.hasViewActionPermission(this.viewAction);
         }
-        return new Observable<true>();
+        else {
+            this.createActionIsValid= true;
+            this.editActionIsValid= true;
+            this.deleteActionIsValid= true;
+            this.listActionIsValid= true;
+            this.duplicateActionIsValid= true;
+            this.viewActionIsValid= true;
+        }
+        return forkJoin([
+            createActionPermission,
+            editActionPermission,
+            deleteActionPermission,
+            listActionPermission,
+            duplicateActionPermission,
+            viewActionPermission
+        ]);
     }
+
 
     public hasCreateActionPermission(action: string) {
         const username = this.authService.authenticatedUser.username;
@@ -153,10 +160,8 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
         );
     }
 
-    public hasActionPermission(action: string , actionValue: boolean){
-        const username = this.authService.authenticatedUser.username;
-        this.service.hasActionPermission(username, action).subscribe(data => actionValue = data  , error => console.log(error) );
-    }
+
+
 
     public onExcelFileSelected(event: any): void {
         const input = event.target as HTMLInputElement;
@@ -164,14 +169,20 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
             this.excelFile = input.files[0];
         }
     }
+
     public importExcel(): void {
         if (this.excelFile) {
             this.service.importExcel(this.excelFile).subscribe(
-                response => {console.log('File uploaded successfully!', response); },
-                error => {console.error('Error uploading file:', error); }
+                response => {
+                    console.log('File uploaded successfully!', response);
+                },
+                error => {
+                    console.error('Error uploading file:', error);
+                }
             );
         }
     }
+
     public findPaginatedByCriteria() {
         this.service.findPaginatedByCriteria(this.criteria).subscribe(paginatedItems => {
             this.items = paginatedItems.list;
@@ -304,9 +315,9 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
         ];
     }
 
-    public exportPdf(dto: DTO): void{
+    public exportPdf(dto: DTO): void {
         this.service.exportPdf(dto).subscribe((data: ArrayBuffer) => {
-            const blob = new Blob([data], { type: 'application/pdf' });
+            const blob = new Blob([data], {type: 'application/pdf'});
             const url = window.URL.createObjectURL(blob);
             const link = document.createElement('a');
             link.href = url;
@@ -318,9 +329,11 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
             console.error(error); // handle any errors that occur
         });
     }
-    public showSearch(): void{
+
+    public showSearch(): void {
         this.findByCriteriaShow = !this.findByCriteriaShow;
     }
+
     public prepareColumnExport() {
     }
 
@@ -450,6 +463,7 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
     set duplicateActionIsValid(value: boolean) {
         this.service.duplicateActionIsValid = value;
     }
+
     get createAction(): string {
         return this.service.createAction;
     }
@@ -481,6 +495,7 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
     set deleteAction(value: string) {
         this.service.deleteAction = value;
     }
+
     get viewAction(): string {
         return this.service.viewAction;
     }
@@ -504,7 +519,8 @@ export class AbstractListController<DTO extends BaseDto, CRITERIA extends BaseCr
     set entityName(value: string) {
         this.service.entityName = value;
     }
+
     get enableSecurity(): boolean {
-        return this.service.enableSecurity;
+        return this._enableSecurity;
     }
 }
