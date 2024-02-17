@@ -1,0 +1,42 @@
+{
+    "reference": "#string",
+    "total": "#number",
+    "totalPaye": "#number",
+    "description": "#string",
+    "client": {"id": "#number"},
+
+    "achatItems": [
+      {
+        "produit":{"id": "#number"},}
+        "prixUnitaire":"#number",}
+        "prixVente":"#number",}
+        "quantite":"#number",}
+        "quantiteAvoir":"#number",}
+        "remise":"#number"}
+      },
+      {
+        "produit":{"id": "#number"},}
+        "prixUnitaire":"#number",}
+        "prixVente":"#number",}
+        "quantite":"#number",}
+        "quantiteAvoir":"#number",}
+        "remise":"#number"}
+      },
+      {
+        "produit":{"id": "#number"},}
+        "prixUnitaire":"#number",}
+        "prixVente":"#number",}
+        "quantite":"#number",}
+        "quantiteAvoir":"#number",}
+        "remise":"#number"}
+      }
+    ]
+}
+
+
+
+
+
+
+
+
