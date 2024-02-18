@@ -1,0 +1,41 @@
+{
+    "from-to": "Elements from {first} to {last} (total {totalRecords})",
+    "new" : "Nouveau",
+    "search": "Chercher",
+    "export": "Exporter",
+    "validate": "Validater",
+    "search": "Chercher...",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
+    "save": "Sauvgarder",
+    "next": "Suivant",
+    "yes": "Oui",
+    "no": "Non",
+    "actions": "Actions",
+    "confirm": "Confirmer",
+    "creation": "Creation",
+    "list": "Liste",
+
+
+    "client":{
+        "cin": "Cin",
+        "nom": "Nom",
+        "tel": "Tel",
+        "email": "Email",
+        "adresse": "Adresse",
+        "description": "Description",
+        "creance": "Creance",
+        "creanceMin": "Creance Min",
+        "creanceMax": "Creance Max",
+        "client": "Client",
+        "tabPan": "Client",
+        "header": "Liste des clients",
+        "deleteClientConfirmationMessage": "Voulez vous vraiment supprimer client",
+        "deleteClientsConfirmationMessage": "Voulez vous vraiment supprimer les elments selectionnes"
+
+    },
+
+"appName": "GED"
+}
+
+
